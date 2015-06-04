@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>webrtc explorer - remote demo</title>
+		
+		<style>body { font-family: sans-serif; }</style>
+	</head>
+
+	<body>
+		<h1>webrtc explorer - remote demo</h1>
+
+		<script src="../build/webrtcExplorer.min.js"></script>
+		
+		<script>
+			var p = webrtcExplorer({
+				signalingURL: 'http://stage.sl.pt:9000',
+				logging: true
+			});
+
+			p.events.on('registered', function(data) {
+			    console.log('registered with Id:', data.peerId);
+			});
+
+			p.events.on('ready', function() {
+			    console.log('ready to send messages');
+			});
+
+			p.events.on('message', function(envelope) {
+			    console.log(envelope);
+			});
+
+			p.register();
+		</script>
+	</body>
+</html>

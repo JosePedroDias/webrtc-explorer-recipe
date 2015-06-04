@@ -1,0 +1,14 @@
+{
+  "name": "webrtc-explorer-recipe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "ISC",
+  "scripts": {
+    "build": "browserify webrtcExplorer.js > build/webrtcExplorer.js && uglifyjs < build/webrtcExplorer.js > build/webrtcExplorer.min.js"
+  },
+  "dependencies": {
+    "browserify": "latest",
+    "uglifyjs": "latest",
+    "webrtc-explorer": "latest"
+  }
+}
